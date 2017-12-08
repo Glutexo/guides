@@ -9,6 +9,7 @@
   - [Running the test suites](developer_setup/running_test_suites.md)
   - Provider setup instructions
     - [Amazon AWS](providers/amazon_aws_config.md)
+    - [Embedded Ansible](providers/embedded_ansible.md)
     - [Hawkular](providers/hawkular-hawkinit.md)
     - [Openshift](providers/openshift.md)
     - [Openstack Infra](providers/openstack_infra_provider.md)
