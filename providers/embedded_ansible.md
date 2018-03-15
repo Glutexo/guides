@@ -10,7 +10,7 @@ Here, we'll set up `DockerEmbeddedAnsible`, introduced in [ManageIQ/manageiq#162
 
 You need docker.
 
-On a mac, you also need `docker-machine`:
+On a Mac, you also need `docker-machine`:
 
 ```
 brew install docker docker-machine
@@ -37,7 +37,7 @@ Config file locations (where to expect it):
 
   * Debian: `/etc/postgresql/9.6/main/`
   * Fedora: `/var/lib/pgsql/data/`
-  * MacOSX: `/usr/local/var/postgres/`
+  * macOS: `/usr/local/var/postgres/`
 
 Note that these may depend on your version, or oven on how you installed PostgreSQL.
 If you still can't find the right location, you may have luck running `psql -d postgres -c 'show config_file'`.
@@ -70,7 +70,7 @@ host all all 192.168.99.0/24 md5
 Ensure your DB user (the one in `config/database.yml`) has `superuser` rights..
 
   * Debian: `sudo su - postgres -c psql -c 'ALTER ROLE "root" SUPERUSER'`
-  * Fedora / MacOSX: `psql -c 'ALTER ROLE "root" SUPERUSER' postgres`
+  * Fedora / macOS: `psql -c 'ALTER ROLE "root" SUPERUSER' postgres`
 
 
 ### Clean up
@@ -160,7 +160,7 @@ ManageIQ::Providers::EmbeddedAnsible::Provider.first.managers.first.id
    * try adding a Repository in ManageIQ (Automate > Ansible > Repositories) :)
 
 
-If you're on MacOSX, you will also need to run these before running _Procfile.ansible_:
+If you're on macOS, you will also need to run these before running _Procfile.ansible_:
 
 ```
 # redirect local 54321 to docker-machine - otherwise, localhost:54321 doesn't work
@@ -187,7 +187,7 @@ foreman start -f Procfile.workers
 ```
 
 
-On a mac, you'll also need to do the `docker-machine ssh...` command running.
+On a Mac, you'll also need to do the `docker-machine ssh...` command running.
 And if you've restarted the machine (or `docker-machine`) since the last time, you'll also need the `iptables...` command.
 
 
