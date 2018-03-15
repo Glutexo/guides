@@ -15,7 +15,11 @@ On a mac, you also need `docker-machine`:
 ```
 brew install docker docker-machine
 
-# read the output and start the service
+# create a default docker machine
+docker-machine create default
+
+# read the output and start the service by running
+brew services start docker-machine
 
 # run this in your .bashrc, or every shell where needed
 eval `docker-machine env default`
@@ -56,7 +60,7 @@ host	all	all	172.17.0.1/24	md5
 Note: that `172.17.0.1/24` may depend on the address of your docker network interface - run `ip addr show dev docker0` and you should see an `inet` line with a similar address - use that.
 
 
-Mac users: you may also need to add this one, for `docker-machine`.
+Mac users: Add this one (for `docker-machine`) instead.
 
 ```
 host all all 192.168.99.0/24 md5
@@ -133,7 +137,7 @@ server.save!
 
    * run rails: `bin/rails s`
 
-   * run the worker that will download and set up the container: `foreman start -f Procfile.ansible`
+   * run the worker that will download and set up the container: `foreman start -f Procfile.ansible` (Mac users: see additional instruction below before launching this.)
 
    * grab a coffee or two - you can watch the progress by watching:
       * authentication errors, docker problems: `tail -f managiq/log/evm.log`
@@ -156,7 +160,7 @@ ManageIQ::Providers::EmbeddedAnsible::Provider.first.managers.first.id
    * try adding a Repository in ManageIQ (Automate > Ansible > Repositories) :)
 
 
-If you're on MacOSX, you will also need to run these first:
+If you're on MacOSX, you will also need to run these before running _Procfile.ansible_:
 
 ```
 # redirect local 54321 to docker-machine - otherwise, localhost:54321 doesn't work
